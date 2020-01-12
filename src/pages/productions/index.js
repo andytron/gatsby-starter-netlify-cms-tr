@@ -1,9 +1,9 @@
 import React from 'react'
 
 import Layout from '../../components/Layout'
-import NewsRoll from '../../components/NewsRoll'
+import ProductionsRoll from '../../components/ProductionsRoll'
 
-export default class NewsIndexPage extends React.Component {
+export default class ProductionsIndexPage extends React.Component {
   render() {
     return (
       <Layout>
@@ -26,7 +26,7 @@ export default class NewsIndexPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-              <NewsRoll />
+              <ProductionsRoll />
             </div>
           </div>
         </section>

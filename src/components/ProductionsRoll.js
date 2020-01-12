@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
-import PreviewCompatibleImage from './PreviewCompatibleImage'
+// import PreviewCompatibleImage from './PreviewCompatibleImage'
 
-class NewsRoll extends React.Component {
+class ProductionsRoll extends React.Component {
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
@@ -60,7 +60,7 @@ class NewsRoll extends React.Component {
   }
 }
 
-NewsRoll.propTypes = {
+ProductionsRoll.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array,
@@ -71,10 +71,10 @@ NewsRoll.propTypes = {
 export default () => (
   <StaticQuery
     query={graphql`
-      query NewsRollQuery {
+      query ProductionsRollQuery {
         allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "news-post" } } }
+          filter: { frontmatter: { templateKey: { eq: "productions-post" } } }
         ) {
           edges {
             node {
@@ -102,6 +102,6 @@ export default () => (
         }
       }
     `}
-    render={(data, count) => <NewsRoll data={data} count={count} />}
+    render={(data, count) => <ProductionsRoll data={data} count={count} />}
   />
 )
