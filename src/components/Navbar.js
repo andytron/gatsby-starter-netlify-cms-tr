@@ -68,7 +68,7 @@ const Navbar = class extends React.Component {
               <Link className="navbar-item" to="/about">
                 About
               </Link>
-              <a href="//shop.tikirocket.com/" className="navbar-item" target="_blank">
+              <a href="//shop.tikirocket.com/" className="navbar-item" target="_blank" rel="noopener noreferrer">
                 Shop
               </a>
             </div>
