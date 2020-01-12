@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: Tiki Rocket
-image: /img/home-jumbotron.jpg
+image: /img/bg-texture.jpg
 heading: Tiki Rocket
 # subheading: Subheader
 mainpitch:
@@ -65,3 +65,4 @@ main:
     alt: Coffee beans
     image: /img/products-grid1.jpg
 ---
+
