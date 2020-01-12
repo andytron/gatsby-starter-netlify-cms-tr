@@ -6,8 +6,8 @@ const ArtistPagePreview = ({ entry, getAsset }) => {
   const entryBlurbs = entry.getIn(['data', 'intro', 'blurbs'])
   const blurbs = entryBlurbs ? entryBlurbs.toJS() : []
 
-  const entryTestimonials = entry.getIn(['data', 'testimonials'])
-  const testimonials = entryTestimonials ? entryTestimonials.toJS() : []
+  const entryRoster = entry.getIn(['data', 'roster'])
+  const roster = entryRoster ? entryRoster.toJS() : []
 
   const entryPricingPlans = entry.getIn(['data', 'pricing', 'plans'])
   const pricingPlans = entryPricingPlans ? entryPricingPlans.toJS() : []
@@ -36,7 +36,7 @@ const ArtistPagePreview = ({ entry, getAsset }) => {
         },
       }}
       fullImage={entry.getIn(['data', 'full_image'])}
-      testimonials={testimonials}
+      roster={roster}
       pricing={{
         heading: entry.getIn(['data', 'pricing', 'heading']),
         description: entry.getIn(['data', 'pricing', 'description']),

@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Features from '../components/Features'
-import Testimonials from '../components/Testimonials'
+// import Features from '../components/Features'
+import Roster from '../components/Roster'
 import Pricing from '../components/Pricing'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
@@ -12,9 +12,9 @@ export const ArtistPageTemplate = ({
   title,
   heading,
   description,
-  intro,
+  // intro,
   main,
-  testimonials,
+  roster,
   fullImage,
   pricing,
 }) => (
@@ -30,9 +30,7 @@ export const ArtistPageTemplate = ({
       <h2
         className="has-text-weight-bold is-size-1"
         style={{
-          boxShadow: '0.5rem 0 0 #f40, -0.5rem 0 0 #f40',
-          backgroundColor: '#f40',
-          color: 'white',
+          color: 'black',
           padding: '1rem',
         }}
       >
@@ -50,7 +48,6 @@ export const ArtistPageTemplate = ({
           </div>
           <div className="columns">
             <div className="column is-10 is-offset-1">
-              <Features gridItems={intro.blurbs} />
               <div className="columns">
                 <div className="column is-7">
                   <h3 className="has-text-weight-semibold is-size-3">
@@ -80,7 +77,7 @@ export const ArtistPageTemplate = ({
                   </div>
                 </div>
               </div>
-              <Testimonials testimonials={testimonials} />
+              <Roster roster={roster} />
               <div
                 className="full-width-image-container"
                 style={{
@@ -109,9 +106,9 @@ ArtistPageTemplate.propTypes = {
   title: PropTypes.string,
   heading: PropTypes.string,
   description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
+  // intro: PropTypes.shape({
+  //   blurbs: PropTypes.array,
+  // }),
   main: PropTypes.shape({
     heading: PropTypes.string,
     description: PropTypes.string,
@@ -119,7 +116,7 @@ ArtistPageTemplate.propTypes = {
     image2: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     image3: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   }),
-  testimonials: PropTypes.array,
+  roster: PropTypes.array,
   fullImage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   pricing: PropTypes.shape({
     heading: PropTypes.string,
@@ -138,9 +135,8 @@ const ArtistPage = ({ data }) => {
         title={frontmatter.title}
         heading={frontmatter.heading}
         description={frontmatter.description}
-        intro={frontmatter.intro}
         main={frontmatter.main}
-        testimonials={frontmatter.testimonials}
+        roster={frontmatter.roster}
         fullImage={frontmatter.full_image}
         pricing={frontmatter.pricing}
       />
@@ -172,20 +168,6 @@ export const artistPageQuery = graphql`
         }
         heading
         description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-          }
-          heading
-          description
-        }
         main {
           heading
           description
@@ -220,9 +202,9 @@ export const artistPageQuery = graphql`
             }
           }
         }
-        testimonials {
-          author
-          quote
+        roster {
+          name
+          link
         }
         full_image {
           childImageSharp {
