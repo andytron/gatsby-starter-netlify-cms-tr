@@ -14,12 +14,10 @@ class NewsRoll extends React.Component {
           posts.map(({ node: post }) => (
             <div className="is-parent column is-6" key={post.id}>
               <article
-                className={`blog-list-item tile is-child box notification ${
-                  post.frontmatter.featuredpost ? 'is-featured' : ''
-                }`}
+                className={`blog-list-item tile is-child box notification`}
               >
                 <header>
-                  {post.frontmatter.featuredimage ? (
+                  {/* {post.frontmatter.featuredimage ? (
                     <div className="featured-thumbnail">
                       <PreviewCompatibleImage
                         imageInfo={{
@@ -28,28 +26,32 @@ class NewsRoll extends React.Component {
                         }}
                       />
                     </div>
-                  ) : null}
+                  ) : null} */}
                   <p className="post-meta">
-                    <Link
-                      className="title has-text-primary is-size-4"
-                      to={post.fields.slug}
-                    >
-                      {post.frontmatter.title}
-                    </Link>
-                    <span> &bull; </span>
+                    {post.frontmatter.externallink ? (
+                      <a href={post.frontmatter.description} className="title has-text-primary is-size-4" target="_blank" rel="noopener noreferrer">{post.frontmatter.title}</a>
+                    ) : (
+                      <Link
+                        className="title has-text-primary is-size-4"
+                        to={post.fields.slug}
+                      >
+                        {post.frontmatter.title}
+                      </Link>
+                    )}
+                    {/* <span> &bull; </span>
                     <span className="subtitle is-size-5 is-block">
                       {post.frontmatter.date}
-                    </span>
+                    </span> */}
                   </p>
                 </header>
-                <p>
+                {/* <p>
                   {post.excerpt}
                   <br />
                   <br />
                   <Link className="button" to={post.fields.slug}>
                     Keep Reading →
                   </Link>
-                </p>
+                </p> */}
               </article>
             </div>
           ))}
@@ -85,7 +87,7 @@ export default () => (
                 title
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
-                featuredpost
+                description
                 externallink
                 featuredimage {
                   childImageSharp {
