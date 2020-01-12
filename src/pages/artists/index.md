@@ -58,14 +58,18 @@ main:
     alt: Coffee beans
     image: /img/products-grid1.jpg
 roster:
-  - name: Elisabeth Kaurismäki
-    link: >-
-      The first time I tried Kaldi’s coffee, I couldn’t even believe that was
-      the same thing I’ve been drinking every morning.
-  - name: Philipp Trommler
-    link: >-
-      Kaldi is the place to go if you want the best quality coffee. I love their
-      stance on empowering farmers and transparency.
+  - link: //allah-las.com/
+    name: Allah-Las
+  - link: //instagram.com/paint_/
+    name: PAINT
+  - link: //mapachesounds.com/
+    name: Mapache
+  - link: //instagram.com/frankmaston/
+    name: Maston
+  - link: //reverberationradio.com/
+    name: Reverberation Radio
+  - link: //instagram.com/groove_burro/
+    name: Tim Hill
 full_image: /img/products-full-width.jpg
 pricing:
   heading: Monthly subscriptions
@@ -96,3 +100,4 @@ pricing:
       plan: Custom
       price: '??'
 ---
+
