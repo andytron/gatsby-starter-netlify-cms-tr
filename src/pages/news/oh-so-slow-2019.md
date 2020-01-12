@@ -8,6 +8,8 @@ featuredimage: /img/oss2019-01.jpg
 tags:
   - oh so slow
 ---
+# Oh So Slow 2019
+
 ⋍
 
 Second Annual Oh So Slow 2019: Art, Film and Music in Canggu, Bali, Indonesia.
