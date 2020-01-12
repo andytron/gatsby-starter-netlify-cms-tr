@@ -71,7 +71,13 @@ $black: #2b2523
 .margin-top-0
   margin-top: 0 !important
 
-.navbar-item .icon
+.navbar-item
+  text-decoration: none
+  transition: all .15s ease
+  &:hover
+    opacity: 0.6
+    text-decoration: underline
+  .icon
   color: $primary
 // Override for use of svg's from https://simpleicons.org/
 .icon svg
@@ -80,9 +86,24 @@ $black: #2b2523
   fill: currentColor
 .navbar-brand .navbar-item.logo
   padding: 0 1rem
+.content a,
+.error-link
+  color: $black !important
+  text-decoration: none !important
+  transition: all .15s ease
+  &:hover
+    opacity: 0.6
+    text-decoration: underline
 footer.footer
-  padding: 3rem 0rem 0rem
+  padding: 3rem 0rem
   background-color: transparent
+  .footer-link
+    color: $black
+    text-decoration: none
+    transition: all .15s ease
+    &:hover
+      opacity: 0.6
+      text-decoration: underline
 
 //Menu overrides
 $menu-item-color: $white-ter
