@@ -13,7 +13,7 @@ public_folder: /img
 
 collections:
   - name: "productions"
-    label: "Production"
+    label: "Productions"
     folder: "src/pages/productions"
     create: true
     slug: "{{slug}}"
