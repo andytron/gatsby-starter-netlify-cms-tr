@@ -1,19 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { v4 } from 'uuid'
+// import { v4 } from 'uuid'
 
 const Roster = ({ roster }) => (
-  <div>
-    {roster.map(item => (
-      <article key={v4()} className="message">
-        <div className="message-body">
-          {item.name}
-          <br />
-          <cite> – {item.link}</cite>
-        </div>
-      </article>
+  <>
+    {roster.map((item, index) => (
+      <div key={index} className="is-parent column is-6">
+        <article className="blog-list-item tile box notification">
+
+            <p className="post-meta">
+              <a href={item.link} className="title has-text-primary is-size-4" target="_blank" rel="noopener noreferrer">
+                {item.name}
+              </a>
+            </p>
+
+        </article>
+      </div>
     ))}
-  </div>
+  </>
 )
 
 Roster.propTypes = {

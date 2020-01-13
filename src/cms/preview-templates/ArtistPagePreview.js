@@ -9,8 +9,8 @@ const ArtistPagePreview = ({ entry, getAsset }) => {
   const entryRoster = entry.getIn(['data', 'roster'])
   const roster = entryRoster ? entryRoster.toJS() : []
 
-  const entryPricingPlans = entry.getIn(['data', 'pricing', 'plans'])
-  const pricingPlans = entryPricingPlans ? entryPricingPlans.toJS() : []
+  // const entryPricingPlans = entry.getIn(['data', 'pricing', 'plans'])
+  // const pricingPlans = entryPricingPlans ? entryPricingPlans.toJS() : []
 
   return (
     <ArtistPageTemplate
@@ -35,13 +35,13 @@ const ArtistPagePreview = ({ entry, getAsset }) => {
           alt: entry.getIn(['data', 'main', 'image3', 'alt']),
         },
       }}
-      fullImage={entry.getIn(['data', 'full_image'])}
+      // fullImage={entry.getIn(['data', 'full_image'])}
       roster={roster}
-      pricing={{
-        heading: entry.getIn(['data', 'pricing', 'heading']),
-        description: entry.getIn(['data', 'pricing', 'description']),
-        plans: pricingPlans,
-      }}
+      // pricing={{
+      //   heading: entry.getIn(['data', 'pricing', 'heading']),
+      //   description: entry.getIn(['data', 'pricing', 'description']),
+      //   plans: pricingPlans,
+      // }}
     />
   )
 }
