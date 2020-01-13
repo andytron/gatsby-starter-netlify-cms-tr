@@ -72,14 +72,14 @@ export const IndexPageTemplate = ({
                     <h3 className="subtitle">{mainpitch.description}</h3>
                   </div>
                 </div> */}
-                {/* <div className="columns">
+                <div className="columns">
                   <div className="column is-12">
                     <h3 className="has-text-weight-semibold is-size-2">
                       {heading}
                     </h3>
                     <p>{description}</p>
                   </div>
-                </div> */}
+                </div>
                 {/* <Features gridItems={intro.blurbs} /> */}
                 {/* <div className="columns">
                   <div className="column is-12 has-text-centered">
@@ -89,17 +89,16 @@ export const IndexPageTemplate = ({
                   </div>
                 </div> */}
 
-                <div className="column is-12">
+                {/* <div className="column is-12">
                   <h3 className="has-text-weight-semibold is-size-2">
                     Latest artists
                   </h3>
-                  {/* <ProductionsRoll /> */}
                   <div className="column is-12 has-text-centered">
                     <Link className="btn" to="/artists">
                       See all artists
                     </Link>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="column is-12">
                   <h3 className="has-text-weight-semibold is-size-2">
