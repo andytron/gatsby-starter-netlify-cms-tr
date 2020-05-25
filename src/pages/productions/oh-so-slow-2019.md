@@ -10,8 +10,6 @@ tags:
 ---
 # Oh So Slow 2019
 
-⋍
-
 Second Annual Oh So Slow 2019: Art, Film and Music in Canggu, Bali, Indonesia.
 
 ![Oh So Slow Day 1](/img/oss2019-01.jpg "Oh So Slow Day 1")
