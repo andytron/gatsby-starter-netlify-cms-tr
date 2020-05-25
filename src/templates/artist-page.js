@@ -1,56 +1,33 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import Helmet from 'react-helmet'
 import Layout from '../components/Layout'
-// import Features from '../components/Features'
 import Roster from '../components/Roster'
-// import Pricing from '../components/Pricing'
-// import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
 export const ArtistPageTemplate = ({
-  image,
   title,
   heading,
   description,
-  // intro,
-  // main,
   roster,
-  // fullImage,
+  helmet,
 }) => (
   <div className="content">
-    <div
-      className="full-width-image-container margin-top-0"
-      style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
-      }}
-    >
-      <h2
-        className="has-text-weight-bold is-size-1"
-        style={{
-          color: 'black',
-          padding: '1rem',
-        }}
-      >
-        {title}
-      </h2>
-    </div>
+    {helmet || ''}
     <section className="section section--gradient">
       <div className="container">
         <div className="section">
           <div className="columns">
-            <div className="column is-7 is-offset-1">
-              <h3 className="has-text-weight-semibold is-size-2">{heading}</h3>
+            <div className="column is-10 is-offset-1">
+              <h3 className="title is-size-3 has-text-weight-semibold is-bold-light">{title}</h3>
+              <h4 className="has-text-weight-semibold is-size-4">{heading}</h4>
               <p>{description}</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
-        <section className="section section--gradient">
       <div className="container">
-        <div className="content">
+        <div className="section">
           <div className="columns is-multiline">
             <Roster roster={roster} />
           </div>
@@ -61,43 +38,29 @@ export const ArtistPageTemplate = ({
 )
 
 ArtistPageTemplate.propTypes = {
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
   heading: PropTypes.string,
   description: PropTypes.string,
-  // intro: PropTypes.shape({
-  //   blurbs: PropTypes.array,
-  // }),
-  // main: PropTypes.shape({
-  //   heading: PropTypes.string,
-  //   description: PropTypes.string,
-    // image1: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-    // image2: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-    // image3: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  // }),
   roster: PropTypes.array,
-  // fullImage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  // pricing: PropTypes.shape({
-  //   heading: PropTypes.string,
-  //   description: PropTypes.string,
-  //   plans: PropTypes.array,
-  // }),
+  helmet: PropTypes.object,
 }
 
 const ArtistPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
+  console.log({ frontmatter })
 
   return (
     <Layout>
       <ArtistPageTemplate
-        image={frontmatter.image}
+        helmet={
+          <Helmet titleTemplate="%s - Tiki Rocket">
+            <title>{`${frontmatter.title}`}</title>
+          </Helmet>
+        }
         title={frontmatter.title}
         heading={frontmatter.heading}
         description={frontmatter.description}
-        // main={frontmatter.main}
         roster={frontmatter.roster}
-        // fullImage={frontmatter.full_image}
-        // pricing={frontmatter.pricing}
       />
     </Layout>
   )

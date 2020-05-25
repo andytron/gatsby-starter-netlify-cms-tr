@@ -1,36 +1,47 @@
 import React from 'react'
-
+import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 import Layout from '../../components/Layout'
 import ProductionsRoll from '../../components/ProductionsRoll'
 
-export default class ProductionsIndexPage extends React.Component {
-  render() {
-    return (
-      <Layout>
-        <div
-          className="full-width-image-container margin-top-0"
-          style={{
-            backgroundImage: `url('/img/bg-texture.jpg')`,
-          }}
-        >
-          <h1
-            className="has-text-weight-bold is-size-1"
-            style={{
-              color: 'black',
-              padding: '1rem',
-            }}
-          >
-            Productions
-          </h1>
-        </div>
-        <section className="section">
-          <div className="container">
-            <div className="content">
-              <ProductionsRoll />
+const ProductionsPage = ({
+  data: {
+    site: {
+      siteMetadata: { title }
+    }
+  }
+}) => (
+  <Layout>
+    <section className="section section--gradient">
+      <div className="container">
+        <div className="section" style={{ paddingBottom: 0 }}>
+          <div className="columns">
+            <div className="column is-10 is-offset-1">
+              <h3 className="title is-size-3 has-text-weight-semibold is-bold-light">Productions</h3>
             </div>
           </div>
-        </section>
-      </Layout>
-    )
+        </div>
+      </div>
+    </section>
+    <section className="section" style={{ paddingTop: 0 }}>
+      <Helmet title={`Productions - ${title}`} />
+      <div className="container">
+        <div className="section">
+          <ProductionsRoll />
+        </div>
+      </div>
+    </section>
+  </Layout>
+)
+
+export default ProductionsPage
+
+export const productionsPageQuery = graphql`
+  query ProductionsQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
   }
-}
+`

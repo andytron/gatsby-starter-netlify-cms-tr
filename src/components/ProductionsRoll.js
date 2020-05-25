@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
-// import PreviewCompatibleImage from './PreviewCompatibleImage'
 
 class ProductionsRoll extends React.Component {
   render() {
@@ -12,46 +11,24 @@ class ProductionsRoll extends React.Component {
       <div className="columns is-multiline">
         {posts &&
           posts.map(({ node: post }) => (
-            <div className="is-parent column is-6" key={post.id}>
+            <div className="roster is-parent column is-offset-1" key={post.id}>
               <article
-                className={`blog-list-item tile is-child box notification`}
+                className={`blog-list-item tile is-child box notification is-10`}
               >
                 <header>
-                  {/* {post.frontmatter.featuredimage ? (
-                    <div className="featured-thumbnail">
-                      <PreviewCompatibleImage
-                        imageInfo={{
-                          image: post.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                        }}
-                      />
-                    </div>
-                  ) : null} */}
                   <p className="post-meta">
                     {post.frontmatter.externallink ? (
-                      <a href={post.frontmatter.description} className="title has-text-primary is-size-4" target="_blank" rel="noopener noreferrer">{post.frontmatter.title}</a>
+                      <a href={post.frontmatter.description} className="title is-size-5" target="_blank" rel="noopener noreferrer">{post.frontmatter.title}</a>
                     ) : (
                       <Link
-                        className="title has-text-primary is-size-4"
+                        className="title is-size-5"
                         to={post.fields.slug}
                       >
                         {post.frontmatter.title}
                       </Link>
                     )}
-                    {/* <span> &bull; </span>
-                    <span className="subtitle is-size-5 is-block">
-                      {post.frontmatter.date}
-                    </span> */}
                   </p>
                 </header>
-                {/* <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button" to={post.fields.slug}>
-                    Keep Reading →
-                  </Link>
-                </p> */}
               </article>
             </div>
           ))}

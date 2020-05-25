@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Tiki Rocket',
     description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+      'Hear everything new from the world of Tiki Rocket -- including music supervision, sound design, live events, and label services.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -27,6 +27,13 @@ module.exports = {
       options: {
         path: `${__dirname}/src/img`,
         name: 'images',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/img/carousel`,
+        name: 'carousel',
       },
     },
     'gatsby-plugin-sharp',
@@ -64,6 +71,15 @@ module.exports = {
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
+    },
+    {
+      resolve: 'gatsby-plugin-google-fonts',
+      options: {
+        fonts: [
+          'work sans\:300,400,600,700'
+        ],
+        display: 'swap'
+      }
     },
     {
       resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules

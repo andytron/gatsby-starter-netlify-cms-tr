@@ -1,135 +1,43 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
-
+import { graphql } from 'gatsby'
+import BackgroundSlider from 'gatsby-image-background-slider'
 import Layout from '../components/Layout'
-// import Features from '../components/Features'
-import ProductionsRoll from '../components/ProductionsRoll'
 
 export const IndexPageTemplate = ({
   image,
-  title,
-  heading,
-  // subheading,
-  // mainpitch,
-  description,
-  // intro,
+  data,
 }) => (
-  <div>
-    <div
-      className="full-width-image margin-top-0"
+  <div
+    style={{
+      position: 'relative',
+      height: 'calc(100vh - 52px - 88px)',
+    }}
+  >
+    <BackgroundSlider
+      query={data}
+      images={[
+        "carousel/sunset.png",
+        "carousel/banana-face.png",
+        "carousel/huraches.png",
+        "carousel/hula.png",
+        "carousel/planted-palm.png",
+      ]}
+      duration={3}
       style={{
         backgroundImage: `url(${
           !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
-        backgroundPosition: `top left`,
-        backgroundAttachment: `fixed`,
+          })`,
+        backgroundPosition: `center center`,
+        backgroundSize: 'contain',
       }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          height: '150px',
-          lineHeight: '1',
-          justifyContent: 'space-around',
-          alignItems: 'left',
-          flexDirection: 'column',
-        }}
-      >
-        <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-          style={{
-            color: 'black',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {title}
-        </h1>
-        {/* <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            color: 'black',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {subheading}
-        </h3> */}
-      </div>
-    </div>
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="section">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="content">
-                {/* <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
-                  </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
-                  </div>
-                </div> */}
-                <div className="columns">
-                  <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
-                    </h3>
-                    <p>{description}</p>
-                  </div>
-                </div>
-                {/* <Features gridItems={intro.blurbs} /> */}
-                {/* <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/artists">
-                      See all
-                    </Link>
-                  </div>
-                </div> */}
-
-                {/* <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest artists
-                  </h3>
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/artists">
-                      See all artists
-                    </Link>
-                  </div>
-                </div> */}
-
-                <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest productions
-                  </h3>
-                  <ProductionsRoll />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/productions">
-                      See all productions
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    />
   </div>
 )
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  title: PropTypes.string,
-  heading: PropTypes.string,
-  // subheading: PropTypes.string,
-  // mainpitch: PropTypes.object,
-  description: PropTypes.string,
-  // intro: PropTypes.shape({
-  //   blurbs: PropTypes.array,
-  // }),
+  data: PropTypes.object,
 }
 
 const IndexPage = ({ data }) => {
@@ -139,12 +47,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <IndexPageTemplate
         image={frontmatter.image}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
-        // subheading={frontmatter.subheading}
-        // mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        // intro={frontmatter.intro}
+        data={data}
       />
     </Layout>
   )
@@ -174,6 +77,16 @@ export const pageQuery = graphql`
         }
         heading
         description
+      }
+    }
+    backgrounds: allFile(filter: { sourceInstanceName: { eq: "images"} }) {
+      nodes {
+        relativePath
+        childImageSharp {
+          fluid (maxWidth: 600, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
       }
     }
   }
