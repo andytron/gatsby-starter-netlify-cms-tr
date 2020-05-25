@@ -34,4 +34,4 @@ Exhibition by Matt Correia ([@cantina_](//instagram.com/cantina_/)) and Reverber
 
 #### May 18 - Music Night
 
- Reverberation Radio & Allah-Las ([@allahlas](//instagram.com/allahlas/)) at Gimme Shelter ([@gimme_shelter_bali](//instagram.com/gimme_shelter_bali/))
+Reverberation Radio & Allah-Las ([@allahlas](//instagram.com/allahlas/)) at Gimme Shelter ([@gimme_shelter_bali](//instagram.com/gimme_shelter_bali/))
