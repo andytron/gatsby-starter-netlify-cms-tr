@@ -3,16 +3,16 @@ templateKey: productions-post
 title: Oh So Slow 2018
 date: 2018-04-01T16:00:00.000Z
 description: Oh So Slow 2018
-featuredimage: /img/OSS-Main.jpg
 externallink: false
+featuredimage: /img/OSS-Main.jpg
 tags:
   - oh so slow
 ---
 # Oh So Slow 2018
 
-A 3 DAY FESTIVAL OF MUSIC, FILM AND ART\
-PRESENTED BY THE SLOW, TIKI ROCKET & INDOSOLE\
-MAY 3, 4 & 6
+**A 3 DAY FESTIVAL OF MUSIC, FILM AND ART**\
+**PRESENTED BY THE SLOW, TIKI ROCKET & INDOSOLE**\
+**MAY 3, 4 & 6**
 
 On the 3rd of May 2018, [The Slow](//theslow.id/), [Tiki Rocke](//tikirocket.com/)t and [Indosole](//indosole.com/) will be presenting their inaugural edition of Oh So Slow, a 3-day celebration of music, film and arts held in Canggu, Bali.
 

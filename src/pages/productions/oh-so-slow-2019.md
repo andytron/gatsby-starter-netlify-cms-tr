@@ -10,8 +10,6 @@ tags:
 ---
 # Oh So Slow 2019
 
-⋍
-
 Second Annual Oh So Slow 2019: Art, Film and Music in Canggu, Bali, Indonesia.
 
 ![Oh So Slow Day 1](/img/oss2019-01.jpg "Oh So Slow Day 1")
@@ -34,4 +32,4 @@ Exhibition by Matt Correia ([@cantina_](//instagram.com/cantina_/)) and Reverber
 
 #### May 18 - Music Night
 
- Reverberation Radio & Allah-Las ([@allahlas](//instagram.com/allahlas/)) at Gimme Shelter ([@gimme_shelter_bali](//instagram.com/gimme_shelter_bali/))
+Reverberation Radio & Allah-Las ([@allahlas](//instagram.com/allahlas/)) at Gimme Shelter ([@gimme_shelter_bali](//instagram.com/gimme_shelter_bali/))
