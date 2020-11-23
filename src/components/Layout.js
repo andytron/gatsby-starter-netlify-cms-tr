@@ -8,8 +8,17 @@ import { withPrefix } from 'gatsby'
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
+  const url = typeof window !== 'undefined' ? window.location.pathname : ''
+
   return (
-    <div>
+    <div
+      className="body"
+      style={{
+        backgroundImage: `url(${`${withPrefix('/')}img/bg-texture.jpg`})`,
+        backgroundPosition: `center center`,
+        backgroundSize: 'contain',
+      }}
+    >
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -48,8 +57,10 @@ const TemplateWrapper = ({ children }) => {
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
       </Helmet>
-      <Navbar />
-      <div>{children}</div>
+      {
+        url !== '/' && <Navbar />
+      }
+      {children}
       <Footer />
     </div>
   )

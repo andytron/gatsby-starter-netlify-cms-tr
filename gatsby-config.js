@@ -18,6 +18,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/static`,
+        name: 'static',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/src/pages`,
         name: 'pages',
       },
@@ -34,6 +41,14 @@ module.exports = {
       options: {
         path: `${__dirname}/src/img/carousel`,
         name: 'carousel',
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /img/,
+        },
       },
     },
     'gatsby-plugin-sharp',

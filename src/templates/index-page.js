@@ -1,43 +1,61 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import BackgroundSlider from 'gatsby-image-background-slider'
+import Helmet from 'react-helmet'
+import Img from 'gatsby-image'
 import Layout from '../components/Layout'
+import Accordion from '../components/Accordion'
+import Roster from '../components/Roster'
 
 export const IndexPageTemplate = ({
+  title,
   image,
-  data,
+  heading,
+  description,
+  contact,
+  shop,
+  instagram,
+  roster,
+  helmet,
 }) => (
-  <div
-    style={{
-      position: 'relative',
-      height: 'calc(100vh - 52px - 88px)',
-    }}
-  >
-    <BackgroundSlider
-      query={data}
-      images={[
-        "carousel/sunset.png",
-        "carousel/banana-face.png",
-        "carousel/huraches.png",
-        "carousel/hula.png",
-        "carousel/planted-palm.png",
-      ]}
-      duration={3}
-      style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-          })`,
-        backgroundPosition: `center center`,
-        backgroundSize: 'contain',
-      }}
-    />
+  <div className="content">
+    {helmet || ''}
+    <section className="section">
+      <div className="container">
+        <div className="tiki-box">
+          <div className="tiki-box__upper">
+            <div className="tiki-box__logo">
+              <Img fixed={image.childImageSharp.fixed} alt="Tiki Rocket" style={{ maxWidth: '150px', maxHeight: '150px', margin: '0 auto' }} />
+            </div>
+            <div className="tiki-box__title">
+              <h2>{heading}</h2>
+            </div>
+          </div>
+          <div className="tiki-box__lower">
+            <Accordion
+              contact={contact}
+              shop={shop}
+              instagram={instagram}
+            >
+              <Roster roster={roster} />
+            </Accordion>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 )
 
 IndexPageTemplate.propTypes = {
+  title: PropTypes.string,
+  heading: PropTypes.string,
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  data: PropTypes.object,
+  description: PropTypes.string,
+  contact: PropTypes.string,
+  shop: PropTypes.string,
+  instagram: PropTypes.string,
+  roster: PropTypes.array,
+  helmet: PropTypes.object,
 }
 
 const IndexPage = ({ data }) => {
@@ -46,8 +64,19 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <IndexPageTemplate
+        helmet={
+          <Helmet titleTemplate="%s - Tiki Rocket">
+            <title>{`${frontmatter.title}`}</title>
+          </Helmet>
+        }
+        title={frontmatter.title}
         image={frontmatter.image}
-        data={data}
+        heading={frontmatter.heading}
+        description={frontmatter.description}
+        contact={frontmatter.contact}
+        shop={frontmatter.shop}
+        instagram={frontmatter.instagram}
+        roster={frontmatter.roster}
       />
     </Layout>
   )
@@ -70,22 +99,23 @@ export const pageQuery = graphql`
         title
         image {
           childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
+            fixed {
+              base64
+              width
+              height
+              src
+              srcSet
             }
           }
         }
         heading
         description
-      }
-    }
-    backgrounds: allFile(filter: { sourceInstanceName: { eq: "images"} }) {
-      nodes {
-        relativePath
-        childImageSharp {
-          fluid (maxWidth: 600, quality: 100) {
-            ...GatsbyImageSharpFluid
-          }
+        contact
+        shop
+        instagram
+        roster {
+          name
+          link
         }
       }
     }

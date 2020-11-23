@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 const Roster = ({ roster }) => (
   <>
     {roster.map((item, index) => (
-      <div key={index} className="roster is-parent column is-offset-1">
-        <article className="blog-list-item tile box notification is-10">
-          <p className="post-meta">
-            <a href={item.link} className="title is-size-5" target="_blank" rel="noopener noreferrer">
-              {item.name}
+      <div key={index} className="roster__item">
+        <article className="blog-list-item">
+            <a href={item.link} className="" target="_blank" rel="noopener noreferrer">
+              <p className="post-meta">
+                {item.name}
+              </p>
             </a>
-          </p>
         </article>
       </div>
     ))}
