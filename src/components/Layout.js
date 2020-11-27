@@ -9,15 +9,16 @@ import { withPrefix } from 'gatsby'
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
   const url = typeof window !== 'undefined' ? window.location.pathname : ''
+  const isHomePage = url === '/'
 
   return (
     <div
-      className="body"
-      style={{
-        backgroundImage: `url(${`${withPrefix('/')}img/bg-texture.jpg`})`,
-        backgroundPosition: `center center`,
+      className={`body ${isHomePage ? 'body--home' : ''}`}
+      style={isHomePage ? {
+        backgroundImage: `url(${withPrefix('/img/bg-texture.jpg')})`,
+        backgroundPosition: 'center center',
         backgroundSize: 'contain',
-      }}
+      } : {}}
     >
       <Helmet>
         <html lang="en" />
@@ -58,7 +59,7 @@ const TemplateWrapper = ({ children }) => {
         />
       </Helmet>
       {
-        url !== '/' && <Navbar />
+        !isHomePage && <Navbar />
       }
       {children}
       <Footer />

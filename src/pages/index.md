@@ -1,9 +1,8 @@
 ---
 templateKey: index-page
-title: Tiki Rocket
+title: Home
 image: /img/logo.png
 heading: Artist Management & Entertainment Production
-# subheading: Subheader
 description: >-
   Hear everything new from the world of Tiki Rocket -- including music supervision, sound design, live events, and label services.
 contact: gm@tikirocket.com

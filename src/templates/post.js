@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
-export const ProductionsPostTemplate = ({
+export const PostTemplate = ({
   content,
   contentComponent,
   helmet,
@@ -14,7 +14,7 @@ export const ProductionsPostTemplate = ({
 
   return (
     <div className="content">
-      <section className="section productions-post">
+      <section className="section post">
         {helmet || ''}
         <div className="container content">
           <div className="section">
@@ -30,22 +30,22 @@ export const ProductionsPostTemplate = ({
   )
 }
 
-ProductionsPostTemplate.propTypes = {
+PostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   helmet: PropTypes.object,
 }
 
-const ProductionsPost = ({ data }) => {
+const Post = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
     <Layout>
-      <ProductionsPostTemplate
+      <PostTemplate
         content={post.html}
         contentComponent={HTMLContent}
         helmet={
-          <Helmet titleTemplate="%s | Productions - Tiki Rocket">
+          <Helmet titleTemplate="%s - Tiki Rocket">
             <title>{`${post.frontmatter.title}`}</title>
             <meta
               name="description"
@@ -58,16 +58,16 @@ const ProductionsPost = ({ data }) => {
   )
 }
 
-ProductionsPost.propTypes = {
+Post.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
 }
 
-export default ProductionsPost
+export default Post
 
 export const pageQuery = graphql`
-  query ProductionsPostByID($id: String!) {
+  query PostByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html

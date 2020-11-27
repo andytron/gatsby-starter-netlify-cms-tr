@@ -51,6 +51,13 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: '@mkitio/gatsby-theme-password-protect',
+      options: {
+        pagePaths: ['/about'],
+        password: 'picture1' // delete or `undefined` to disable password protection
+      }
+    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {

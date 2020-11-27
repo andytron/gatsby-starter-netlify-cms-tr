@@ -25,9 +25,19 @@ img
   display: flex
   flex-direction: column
   justify-content: center
-  height: 100%
-  @media all and (min-width: 768px)
-    position: absolute;
+  &--home
+    height: 100vh
+    @media all and (min-width: 481px)
+      height: 100%
+    @media all and (min-width: 768px)
+      position: absolute;
+
+.content
+  margin-bottom: 0 !important
+  .body--home &
+    overflow-y: scroll
+    @media all and (min-width: 481px)
+      overflow-y: hidden
 
 .tiki-box
   margin: 0 auto
@@ -168,7 +178,7 @@ img
     margin-bottom: 1.5rem
     margin-top: 0
 
-.productions-post
+.post
   .content
     h4
       margin-top: 0.8em
@@ -177,6 +187,11 @@ img
     .gatsby-resp-image-wrapper > a
       max-width: 600px
       margin: 0 auto
+
+.password-protect
+  form
+    button
+      font-family: $font-sans
 
 // Helper Classes
 .full-width-image-container
@@ -220,13 +235,21 @@ img
 .margin-top-0
   margin-top: 0 !important
 
+.navbar-brand
+  margin: 0 auto !important
+
 .navbar-item
+  padding: 1rem !important
+  margin: 0 auto
   text-decoration: none
   transition: all .15s ease
   &:hover
     opacity: 0.6
     text-decoration: underline
   color: $primary
+  img
+    max-height: 3rem !important
+
 // Override for use of svg's from https://simpleicons.org/
 .icon svg
   width: 1.5rem
@@ -272,14 +295,10 @@ $menu-label-color: $white-ter
 @import "~bulma"
 
 // responsiveness
-
 +tablet
   .roster.column
     flex: none
     width: 40%
-  .navbar-item
-    &:first-child
-      width: 80px
 
 +tablet-only
   .blog-list-item .featured-thumbnail

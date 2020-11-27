@@ -1,10 +1,10 @@
 ---
-templateKey: productions-post
+templateKey: post
 title: Oh So Slow 2018
 date: 2018-04-01T16:00:00.000Z
 description: Oh So Slow 2018
 externallink: false
-featuredimage: /img/OSS-Main.jpg
+# featuredimage: /img/OSS-Main.jpg
 tags:
   - oh so slow
 ---

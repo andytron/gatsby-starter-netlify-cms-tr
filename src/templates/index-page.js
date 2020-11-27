@@ -2,14 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import Img from 'gatsby-image'
 import Layout from '../components/Layout'
 import Accordion from '../components/Accordion'
 import Roster from '../components/Roster'
 
 export const IndexPageTemplate = ({
   title,
-  image,
+  // image,
   heading,
   description,
   contact,
@@ -25,7 +24,7 @@ export const IndexPageTemplate = ({
         <div className="tiki-box">
           <div className="tiki-box__upper">
             <div className="tiki-box__logo">
-              <Img fixed={image.childImageSharp.fixed} alt="Tiki Rocket" style={{ maxWidth: '150px', maxHeight: '150px', margin: '0 auto' }} />
+              <img src="/img/logo.png" alt="Tiki Rocket" style={{ maxWidth: '150px', maxHeight: '150px', margin: '1.5rem auto' }} />
             </div>
             <div className="tiki-box__title">
               <h2>{heading}</h2>
@@ -49,7 +48,7 @@ export const IndexPageTemplate = ({
 IndexPageTemplate.propTypes = {
   title: PropTypes.string,
   heading: PropTypes.string,
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  // image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   description: PropTypes.string,
   contact: PropTypes.string,
   shop: PropTypes.string,
@@ -70,7 +69,7 @@ const IndexPage = ({ data }) => {
           </Helmet>
         }
         title={frontmatter.title}
-        image={frontmatter.image}
+        // image={frontmatter.image}
         heading={frontmatter.heading}
         description={frontmatter.description}
         contact={frontmatter.contact}
@@ -97,17 +96,6 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         title
-        image {
-          childImageSharp {
-            fixed {
-              base64
-              width
-              height
-              src
-              srcSet
-            }
-          }
-        }
         heading
         description
         contact

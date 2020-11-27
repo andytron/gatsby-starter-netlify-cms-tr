@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 
-class ProductionsRoll extends React.Component {
+class PostsRoll extends React.Component {
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
@@ -37,7 +37,7 @@ class ProductionsRoll extends React.Component {
   }
 }
 
-ProductionsRoll.propTypes = {
+PostsRoll.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array,
@@ -48,10 +48,10 @@ ProductionsRoll.propTypes = {
 export default () => (
   <StaticQuery
     query={graphql`
-      query ProductionsRollQuery {
+      query PostsRollQuery {
         allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "productions-post" } } }
+          filter: { frontmatter: { templateKey: { eq: "post" } } }
         ) {
           edges {
             node {
@@ -66,19 +66,12 @@ export default () => (
                 date(formatString: "MMMM DD, YYYY")
                 description
                 externallink
-                featuredimage {
-                  childImageSharp {
-                    fluid(maxWidth: 120, quality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
               }
             }
           }
         }
       }
     `}
-    render={(data, count) => <ProductionsRoll data={data} count={count} />}
+    render={(data, count) => <PostsRoll data={data} count={count} />}
   />
 )
