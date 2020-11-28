@@ -51,7 +51,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "gatsby-plugin-force-trailing-slashes": "^1.0.4",
     "prettier": "^1.15.3"
   }
 }

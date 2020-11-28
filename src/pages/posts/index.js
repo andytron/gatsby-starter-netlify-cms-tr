@@ -9,9 +9,10 @@ const PostsPage = ({
     site: {
       siteMetadata: { title }
     }
-  }
+  },
+  location
 }) => (
-  <Layout>
+  <Layout location={location}>
     <section className="section section--gradient">
       <div className="container">
         <div className="section" style={{ paddingBottom: 0 }}>

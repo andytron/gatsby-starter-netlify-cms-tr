@@ -6,9 +6,9 @@ import './all.sass'
 import useSiteMetadata from './SiteMetadata'
 import { withPrefix } from 'gatsby'
 
-const TemplateWrapper = ({ children }) => {
+const TemplateWrapper = ({ location, children }) => {
   const { title, description } = useSiteMetadata()
-  const url = typeof window !== 'undefined' ? window.location.pathname : ''
+  const url = location.pathname || ''
   const isHomePage = url === '/'
 
   return (

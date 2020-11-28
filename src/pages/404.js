@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/Layout'
 
-const NotFoundPage = () => (
-  <Layout>
+const NotFoundPage = ({ location }) => (
+  <Layout location={location}>
     <div className="content">
       <div className="section">
         <div className="container">

@@ -51,7 +51,7 @@ const PasswordProtect = () => {
   const [isButtonHovered, buttonHover] = useState(false);
   const { title, description } = useSiteMetadata()
 
-  const onSubmit = event => {
+  const onSubmit = (event) => {
     event.preventDefault();
     setSessionPassword(password);
     window.location.reload(); // eslint-disable-line
@@ -101,25 +101,27 @@ const PasswordProtect = () => {
       <h3 style={{ color: '#fff', marginBottom: '.5rem' }}>Enter Password:</h3>
 
       <form onSubmit={onSubmit} style={{ width: '320px' }}>
-        <input
-          name="password"
-          type="password"
-          value={password}
-          onChange={event => setPassword(event.target.value)}
-          style={styles.input}
-        />
+        <div>
+          <input
+            name="password"
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            style={styles.input}
+          />
 
-        <button
-          type="submit"
-          style={{
-            ...styles.button,
-            ...(isButtonHovered ? styles.buttonHover : null)
-          }}
-          onMouseEnter={() => buttonHover(true)}
-          onMouseLeave={() => buttonHover(false)}
-        >
-          Submit
-        </button>
+          <button
+            type="submit"
+            style={{
+              ...styles.button,
+              ...(isButtonHovered ? styles.buttonHover : null)
+            }}
+            onMouseEnter={() => buttonHover(true)}
+            onMouseLeave={() => buttonHover(false)}
+          >
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   );
