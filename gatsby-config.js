@@ -54,7 +54,7 @@ module.exports = {
     {
       resolve: '@mkitio/gatsby-theme-password-protect',
       options: {
-        pagePaths: ['/about'],
+        pagePaths: ['/about/'],
         password: 'picture1' // delete or `undefined` to disable password protection
       }
     },
