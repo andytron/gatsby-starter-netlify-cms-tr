@@ -19,9 +19,10 @@ class TagRoute extends React.Component {
     const tagHeader = `${totalCount} post${
       totalCount === 1 ? '' : 's'
     } tagged with “${tag}”`
+    const { location } = this.props
 
     return (
-      <Layout>
+      <Layout location={location}>
         <section className="section">
           <Helmet title={`${tag} | ${title}`} />
           <div className="container content">
