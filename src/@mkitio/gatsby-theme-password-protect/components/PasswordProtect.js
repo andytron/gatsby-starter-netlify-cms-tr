@@ -14,7 +14,13 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    fontSize: '1rem',
+    padding: '0 1rem',
+    textAlign: 'center',
+  },
+  wrapperInner: {
+    width: '300px',
   },
   input: {
     width: '100%',
@@ -58,7 +64,7 @@ const PasswordProtect = () => {
   };
 
   return (
-    <div className="password-protect" style={styles.wrapper}>
+    <div className="password-protect">
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -98,29 +104,33 @@ const PasswordProtect = () => {
         />
       </Helmet>
 
-      <h3 style={{ color: '#fff', marginBottom: '.5rem' }}>Enter Password:</h3>
+      <form onSubmit={onSubmit}>
+        <div style={styles.wrapper}>
+          <div style={styles.wrapperInner}>
+            <h3 style={{ color: '#fff', marginBottom: '.5rem' }}>
+              Enter Password:
+            </h3>
 
-      <form onSubmit={onSubmit} style={{ width: '320px' }}>
-        <div>
-          <input
-            name="password"
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            style={styles.input}
-          />
+            <input
+              name="password"
+              type="password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              style={styles.input}
+            />
 
-          <button
-            type="submit"
-            style={{
-              ...styles.button,
-              ...(isButtonHovered ? styles.buttonHover : null)
-            }}
-            onMouseEnter={() => buttonHover(true)}
-            onMouseLeave={() => buttonHover(false)}
-          >
-            Submit
-          </button>
+            <button
+              type="submit"
+              style={{
+                ...styles.button,
+                ...(isButtonHovered ? styles.buttonHover : null)
+              }}
+              onMouseEnter={() => buttonHover(true)}
+              onMouseLeave={() => buttonHover(false)}
+            >
+              Submit
+            </button>
+          </div>
         </div>
       </form>
     </div>
